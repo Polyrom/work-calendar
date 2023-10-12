@@ -1,7 +1,7 @@
 
 ![ruff](https://github.com/Polyrom/work-calendar/actions/workflows/linter.yml/badge.svg) ![tests](https://github.com/Polyrom/work-calendar/actions/workflows/tests.yml/badge.svg)
 
-### WorkCalendar
+# WorkCalendar
 
 A simple no-nonsense library to find out whether a day is a working day in Russia.
 
