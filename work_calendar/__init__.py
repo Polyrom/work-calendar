@@ -14,9 +14,11 @@ class WorkCalendar:
         """Determine if a given date is a day off.
 
         Args:
+        ----
             date_to_check: The date to check.
 
         Returns:
+        -------
             True if the given date is a day off, False otherwise.
 
         """
