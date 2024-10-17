@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "work-calendar"
-version = "0.2.0"
+version = "0.2.2"
 description = "Determines if a day is a working day in Russia"
 authors = ["Polyrom <roman61394@gmail.com>"]
 homepage = "https://github.com/Polyrom/work-calendar"
