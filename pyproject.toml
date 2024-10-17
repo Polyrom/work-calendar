@@ -8,7 +8,7 @@ repository = "https://github.com/Polyrom/work-calendar.git"
 documentation = "https://github.com/Polyrom/work-calendar"
 keywords = ["utility", "python", "calendar"]
 readme = "README.md"
-packages = [{ include = "work_calendar" }]
+packages = [{ include = "work_calendar" }, { include = "data" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
