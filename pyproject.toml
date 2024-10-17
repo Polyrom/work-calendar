@@ -1,14 +1,17 @@
 [tool.poetry]
 name = "work-calendar"
 version = "0.2.0"
-description = ""
+description = "Determines if a day is a working day in Russia"
 authors = ["Roman Poliakov <roman61394@gmail.com>"]
+homepage = "https://github.com/Polyrom/work-calendar"
+repository = "https://github.com/Polyrom/work-calendar.git"
+documentation = "https://github.com/Polyrom/work-calendar"
+keywords = ["utility", "python", "calendar"]
 readme = "README.md"
 packages = [{ include = "work_calendar" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.292"
