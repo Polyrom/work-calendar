@@ -1,4 +1,3 @@
-
 ![ruff](https://github.com/Polyrom/work-calendar/actions/workflows/linter.yml/badge.svg) ![tests](https://github.com/Polyrom/work-calendar/actions/workflows/tests.yml/badge.svg)
 
 # WorkCalendar
@@ -7,7 +6,7 @@ A simple no-nonsense library to find out whether a day is a working day in Russi
 
 Data parsed from [consultant.org](https://www.consultant.ru).
 
-Data available **only for years 2015-2024**.
+Data available **only for years 2015-2025**.
 
 Feel free to use the [raw json file](data/total.json).
 
@@ -28,4 +27,3 @@ Traceback (most recent call last):
     raise exceptions.NoDataForYearError(year)
 work_calendar.exceptions.NoDataForYearError: No data found for holidays in year 2027
 ```
-
