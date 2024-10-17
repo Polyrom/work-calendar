@@ -31,7 +31,3 @@ class WorkCalendar:
         if year_str not in cls.__holidays_db:
             raise exceptions.NoDataForYearError(day.year)
         return date_ in cls.__holidays_db[year_str]
-
-
-if __name__ == "__main__":
-    print(WorkCalendar.is_workday(datetime.date.today()))
