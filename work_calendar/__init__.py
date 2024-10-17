@@ -1,30 +1,31 @@
-import os
-import json
 import datetime
+from pathlib import Path
+
 from work_calendar import exceptions
+from work_calendar.data_loader import load_data
 
 
 class WorkCalendar:
-
-    data_path = os.path.join(os.getcwd(), 'data', 'total.json')
+    __data_path = Path.cwd() / "data" / "total.json"
+    __workday_data = load_data(__data_path)
 
     @classmethod
     def is_day_off(cls, date_to_check: datetime.date) -> bool:
-        return cls._is_in_days_off(date_to_check)
+        """Determine if a given date is a day off.
+
+        Args:
+            date_to_check: The date to check.
+
+        Returns:
+            True if the given date is a day off, False otherwise.
+
+        """
+        return cls.__is_in_days_off(date_to_check)
 
     @classmethod
-    def _is_in_days_off(cls, day: datetime.date) -> bool:
-        data = cls._load_data(cls.data_path)
-        year = datetime.date.strftime(day, '%Y')
-        date_ = datetime.date.strftime(day, '%Y-%m-%d')
-        for stored_year, days_off in data.items():
-            if stored_year == year:
-                return date_ in days_off
-        raise exceptions.NoDataForYearError(year)
-
-    @classmethod
-    def _load_data(cls, path_to_data: str) -> dict[str, str]:
-        with open(path_to_data, 'r') as f:
-            data = json.loads(f.read())
-            return data
-
+    def __is_in_days_off(cls, day: datetime.date) -> bool:
+        date_ = datetime.date.strftime(day, "%Y-%m-%d")
+        year_str = str(day.year)
+        if year_str not in cls.__workday_data:
+            raise exceptions.NoDataForYearError(day.year)
+        return date_ in cls.__workday_data[year_str]
