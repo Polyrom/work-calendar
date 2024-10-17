@@ -1,4 +1,4 @@
-name: ruff 
+name: ruff
 
 on: push
 
@@ -10,7 +10,6 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v3
       - name: Install Dependencies
-        run:  pip install poetry
-              pip install ruff 
+        run: pip install ruff
       - name: Run Linter
-        run: poetry run ruff check . 
+        run: ruff check .
