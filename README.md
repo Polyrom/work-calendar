@@ -1,5 +1,7 @@
+[![license: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![PyPI](https://img.shields.io/pypi/v/work-calendar?label=pypi%20work-calendar)
-![ruff](https://github.com/Polyrom/work-calendar/actions/workflows/linter.yml/badge.svg) ![tests](https://github.com/Polyrom/work-calendar/actions/workflows/tests.yml/badge.svg)
+![ruff](https://github.com/Polyrom/work-calendar/actions/workflows/linter.yml/badge.svg)
+![tests](https://github.com/Polyrom/work-calendar/actions/workflows/tests.yml/badge.svg)
 
 # Work Calendar
 
