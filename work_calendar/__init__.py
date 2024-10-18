@@ -1,33 +1,42 @@
 import datetime
+import json
+from functools import cache
 from pathlib import Path
 
-from work_calendar import exceptions
-from work_calendar.data_loader import load_data
+
+class NoDataForYearError(Exception):
+    def __init__(self, year: int):
+        self.year = year
+        self.message = f"No data found for year {self.year}"
+        super().__init__(self.message)
 
 
-class WorkCalendar:
-    __data_path = Path(__file__).parent / "total.json"
-    __holidays_db = load_data(__data_path)
+def is_workday(date_to_check: datetime.date) -> bool:
+    """Determine if a given date is a workday in Russia.
 
-    @classmethod
-    def is_workday(cls, date_to_check: datetime.date) -> bool:
-        """Determine if a given date is a workday in Russia.
+    Args:
+    ----
+        date_to_check: The date to check.
 
-        Args:
-        ----
-            date_to_check: The date to check.
+    Returns:
+    -------
+        True if the given date is a day off, False otherwise.
 
-        Returns:
-        -------
-            True if the given date is a day off, False otherwise.
+    """
+    return not __is_in_days_off(date_to_check)
 
-        """
-        return not cls.__is_in_days_off(date_to_check)
 
-    @classmethod
-    def __is_in_days_off(cls, day: datetime.date) -> bool:
-        date_ = datetime.date.strftime(day, "%Y-%m-%d")
-        year_str = str(day.year)
-        if year_str not in cls.__holidays_db:
-            raise exceptions.NoDataForYearError(day.year)
-        return date_ in cls.__holidays_db[year_str]
+def __is_in_days_off(day: datetime.date) -> bool:
+    holidays_data = __load_holidays_data()
+    date_ = datetime.date.strftime(day, "%Y-%m-%d")
+    year_str = str(day.year)
+    if year_str not in holidays_data:
+        raise NoDataForYearError(day.year)
+    return date_ in holidays_data[year_str]
+
+
+@cache
+def __load_holidays_data() -> dict[str, str]:
+    data_path = Path(__file__).parent / "total.json"
+    with data_path.open() as f:
+        return json.loads(f.read())
