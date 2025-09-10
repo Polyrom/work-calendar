@@ -33,7 +33,7 @@ def test_is_workday_workday():
 
 
 def test_is_workday_out_of_bounds():
-    """Test that the function raises NoDataForYearError when given a date that is out of bounds.
+    """Test that the function raises NoDataForYearError when given a date out of bounds.
 
     This test uses a date in 2003, which is before the start of the range of available
     data. The function should raise NoDataForYearError in this case.

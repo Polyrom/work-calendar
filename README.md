@@ -9,7 +9,7 @@ A simple no-nonsense library to find out whether a day is a working day in Russi
 
 Data obtained from [consultant.org](https://www.consultant.ru). I try to parse it as soon as the official calendar for the following year is published, which is normally late summer or early autumn.
 
-Data available **for years 2015-2025**. Feel free to use the [raw json file](work_calendar/total.json).
+Data available **for years 2015-2027**. Feel free to use the [raw json file](work_calendar/total.json).
 
 ## Installation
 
